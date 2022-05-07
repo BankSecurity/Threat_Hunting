@@ -1,2 +1,2 @@
 # Threat_Hunting
-Some Crowdstrike Threat Hunting queries useful for blue teamers
+Some Crowdstrike threat hunting queries useful for blue teamers
