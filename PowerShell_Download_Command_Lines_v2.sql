@@ -1,0 +1,4 @@
+event_simpleName=ProcessRollup2 OR event_simpleName=ProcessBlocked FileName="powershell.exe" CommandLine="powershell.exe -w hidden -ep bypass -Enc*" OR CommandLine="*-w hidden -noni -nop -c \"iex(New-Object*" OR CommandLine="powershell.exe reg add * HKCU\\software\\microsoft\\windows\\currentversion\\run*" OR CommandLine=
+    "*System.Net.WebClient).DownloadString(\"http*" OR CommandLine="*System.Net.WebClient).DownloadString('http*" OR CommandLine="*Process.Create(\"powershell.exe -nop -w hidden*" OR CommandLine="*.Run\"powershell.exe -nop -w hidden -c \"\"IEX *" OR CommandLine="*.Run \"powershell.exe -nop -w hidden -e *" OR CommandLine="*FileExists(path + \"\\..\\powershell.exe\")*" OR CommandLine="*window.moveTo -4000, -4000*" OR CommandLine="*.CreateObject(\"WScript.Shell\")*" OR CommandLine="powershell.exe -ExecutionPolicy Bypass [System.Convert]::FromBase64String(*" 
+| Table FileName CommandLine 
+| stats count by CommandLine

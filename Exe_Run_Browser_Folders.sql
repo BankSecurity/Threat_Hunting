@@ -1,0 +1,4 @@
+(event_simpleName=ProcessRollup2 OR event_simpleName=SyntheticProcessRollup2) AND (ImageFileName="*\\AppData\\Local\\Microsoft\\Windows\\Temporary Internet Files\\*" OR ImageFileName="*\\AppData\\Local\\Mozilla\\Firefox\\Profiles*" OR ImageFileName="*\\AppData\\Local\\Google\\Chrome\\*" OR ImageFileName="*\\Downloads\\*") 
+| regex ImageFileName=".*\\\\AppData\\\\Local\\\\Microsoft\\\\Windows\\\\Temporary.Internet.Files\\\\\w+\.exe|.*\\\\AppData\\\\Local\\\\Mozilla\\\\Firefox\\\\Profiles\\\\\w+\.exe|.*\\\\AppData\\\\Local\\\\Google\\\\Chrome\\\\\w+\.exe|.*\\\\Downloads\\\\\w+\.exe" 
+| table ComputerName UserName ImageFileName FileName SHA256HashData
+| stats count values(ImageFileName) by SHA256HashData

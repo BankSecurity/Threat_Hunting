@@ -1,0 +1,2 @@
+event_simpleName=ProcessRollup2 OR event_simpleName=ProcessBlocked OR event_simpleName=SyntheticProcessRollup2 CommandLine="*net localgroup Administrators /add*"
+| table ComputerName UserName CommandLine
